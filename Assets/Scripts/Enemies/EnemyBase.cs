@@ -17,11 +17,12 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] protected LayerMask _playerLayer;
     [SerializeField] protected float _detectionRange;
 
-    private Rigidbody2D _rb; 
+    [Header("Attack Range")]
+    [SerializeField] protected float _attackRange;
+    [SerializeField] protected float _attackSpeed;
 
     protected virtual void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         if(_player != null)
         {
