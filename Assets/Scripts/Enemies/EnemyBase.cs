@@ -12,6 +12,8 @@ public abstract class EnemyBase : MonoBehaviour
 
     [Header("Detection")]
     [SerializeField] protected Transform[] _wayPoints;
+    protected Transform _player;
+    protected int _currentWaypoint;
     [SerializeField] protected LayerMask _playerLayer;
     [SerializeField] protected float _detectionRange;
 
@@ -20,5 +22,10 @@ public abstract class EnemyBase : MonoBehaviour
     protected virtual void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if(_player != null)
+        {
+            Debug.Log("Player Iniciado");
+        }
     }
 }

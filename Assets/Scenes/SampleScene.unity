@@ -672,15 +672,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 0
-  _patrolSpeed: 0
+  _patrolSpeed: 2
   _followSpeed: 0
   _takenDmg: 0
-  _wayPoints: []
+  _wayPoints:
+  - {fileID: 1546536400}
+  - {fileID: 571958860}
   _playerLayer:
     serializedVersion: 2
     m_Bits: 8
   _detectionRange: 3.65
-  test: 0
+  _playerInRange: 0
 --- !u!212 &1105713482
 SpriteRenderer:
   m_ObjectHideFlags: 0
