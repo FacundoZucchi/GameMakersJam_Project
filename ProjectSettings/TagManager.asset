@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FadeFx
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX
@@ -44,6 +46,12 @@ TagManager:
   - name: Background
     uniqueID: 2155811735
     locked: 0
+  - name: Furnitures
+    uniqueID: 3429033821
+    locked: 0
   - name: Player
     uniqueID: 3270626417
+    locked: 0
+  - name: Enemies
+    uniqueID: 2767261631
     locked: 0
