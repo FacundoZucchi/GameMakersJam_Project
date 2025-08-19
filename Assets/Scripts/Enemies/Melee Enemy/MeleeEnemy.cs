@@ -1,13 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeEnemy : EnemyBase
 {
-    public bool _playerInRange;
-    public bool _inAttackRange;
+    private bool _playerInRange;
+    private bool _inAttackRange;
 
-    public bool _playerAttacked;
+    private bool _playerAttacked;
+
+    public bool _lookingRight;
 
     [SerializeField] private float _attackCD;
 
@@ -57,7 +60,9 @@ public class MeleeEnemy : EnemyBase
     {
         transform.position = Vector2.MoveTowards(transform.position, _wayPoints[_currentWaypoint].position, _patrolSpeed * Time.deltaTime);
 
-        if(Vector2.Distance(transform.position, _wayPoints[_currentWaypoint].position) < 0.2f)
+        LookRotation(_wayPoints[_currentWaypoint].position);
+
+        if (Vector2.Distance(transform.position, _wayPoints[_currentWaypoint].position) < 0.2f)
         {
             if(_currentWaypoint == 0)
             {
@@ -80,7 +85,9 @@ public class MeleeEnemy : EnemyBase
     {
         transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, _followSpeed * Time.deltaTime);
 
-        if(!_playerInRange)
+        LookRotation(_player.transform.position);
+
+        if (!_playerInRange)
         {
             _currentState = enemyStates.Patrol;
         }
@@ -137,6 +144,25 @@ public class MeleeEnemy : EnemyBase
         {
             _currentState = enemyStates.Patrol;
         }
+    }
+
+    private void LookRotation(Vector3 objective)
+    {
+        if(objective.x < transform.position.x && !_lookingRight)
+        {
+            Turn();
+        }
+
+        else if(objective.x > transform.position.x && _lookingRight)
+        {
+            Turn();
+        }
+    }
+
+    private void Turn()
+    {
+        _lookingRight = !_lookingRight;
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + 180, 0);
     }
 
     private void OnDrawGizmos()
