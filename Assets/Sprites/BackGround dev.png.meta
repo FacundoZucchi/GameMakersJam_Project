@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f2b2560fc8f99d4479082ac4a9b076e6
+guid: 9c5c65389020ac44a80abee7b7d2cc2d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BackGround dev_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 571
+        width: 289
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8568002757d45fd438e9325de056f5b9
+      internalID: 1222669740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGround dev_1
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 568
+        width: 289
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d148f12f39d84d49b3e2b209d2cafd0
+      internalID: -257046400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BackGround dev_2
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 42
+        width: 1078
+        height: 1026
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bc21708105502d4982c632316930e5f
+      internalID: -279227424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +182,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BackGround dev_0: 1222669740
+      BackGround dev_1: -257046400
+      BackGround dev_2: -279227424
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
