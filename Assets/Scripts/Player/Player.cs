@@ -4,11 +4,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
+
     public float _AxisX;
     public float _AxisY;
     public bool movementCheck;
     [SerializeField] float speed;
     private Rigidbody2D rb;
+
+    private void Awake()
+    {
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(Instance);
+    }
 
 
     void Start()

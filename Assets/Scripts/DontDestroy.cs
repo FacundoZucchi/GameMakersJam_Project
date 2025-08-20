@@ -10,7 +10,7 @@ public class DontDestroy : MonoBehaviour
     {
         if(Instance != null)
         {
-            Destroy(Instance);
+            Destroy(gameObject);
             return;
         }
 
