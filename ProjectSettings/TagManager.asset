@@ -6,6 +6,9 @@ TagManager:
   tags:
   - FadeFx
   - PlayerSpawn
+  - MainMenu
+  - OptionsMenu
+  - fadePanel
   layers:
   - Default
   - TransparentFX
