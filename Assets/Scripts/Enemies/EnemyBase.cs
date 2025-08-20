@@ -21,8 +21,13 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] protected float _attackRange;
     [SerializeField] protected float _attackSpeed;
 
+    protected Rigidbody2D _rb;
+    protected Animator _animator;
+
     protected virtual void Start()
     {
+        _rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         if(_player != null)
         {

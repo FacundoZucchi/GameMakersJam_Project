@@ -12,6 +12,8 @@ public class MeleeEnemy : EnemyBase
 
     public bool _lookingRight;
 
+    private Vector2 _targetPosition;
+
     [SerializeField] private float _attackCD;
 
     [SerializeField] private enemyStates _currentState;
@@ -24,6 +26,12 @@ public class MeleeEnemy : EnemyBase
         Hitted,
         Death
     }
+
+    [Header("Animations")]
+    private bool _walking;
+    private bool _attacking;
+    private bool _CD;
+    private bool _death;
 
     protected override void Start()
     {
@@ -54,11 +62,33 @@ public class MeleeEnemy : EnemyBase
             case enemyStates.Death:
                 break;
         }
+
+        // animations Bools
+        _animator.SetBool("Walking", _walking);
+        _animator.SetBool("Attacking", _attacking);
+        _animator.SetBool("CD", _CD);
+        _animator.SetBool("Death", _death);
+    }
+
+    protected void FixedUpdate()
+    {
+        if(_currentState == enemyStates.Patrol)
+        {
+            _rb.MovePosition(Vector2.MoveTowards(_rb.position, _targetPosition, _patrolSpeed * Time.fixedDeltaTime));
+        }
+
+        else if (_currentState == enemyStates.Follow)
+        {
+            _rb.MovePosition(Vector2.MoveTowards(_rb.position, _targetPosition, _followSpeed * Time.fixedDeltaTime));
+        }
     }
 
     private void Patrol()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _wayPoints[_currentWaypoint].position, _patrolSpeed * Time.deltaTime);
+        _walking = true;
+        _attacking = false;
+        _CD = false;
+        _targetPosition = _wayPoints[_currentWaypoint].position;
 
         LookRotation(_wayPoints[_currentWaypoint].position);
 
@@ -83,7 +113,11 @@ public class MeleeEnemy : EnemyBase
 
     private void Follow()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, _followSpeed * Time.deltaTime);
+        _walking = true;
+        _attacking = false;
+        _CD = false;
+
+        _targetPosition = _player.transform.position;
 
         LookRotation(_player.transform.position);
 
@@ -100,6 +134,10 @@ public class MeleeEnemy : EnemyBase
 
     private void Attack()
     {
+        _walking = false;
+        _attacking = true;
+        _CD = false;
+
         transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, _attackSpeed * Time.deltaTime);
 
         Debug.Log("se ataco al jugador");
@@ -127,6 +165,9 @@ public class MeleeEnemy : EnemyBase
 
     private IEnumerator Cooldown()
     {
+        _walking = false;
+        _attacking = false;
+        _CD = true;
         yield return new WaitForSeconds(_attackCD);
         _playerAttacked = false;
 
