@@ -6,10 +6,9 @@ using UnityEngine;
 public class AttackMele : MonoBehaviour
 {
     private Animator _Animator;
-    public bool AttackCheck;
-    int ComboStep = 0;
-    float ComboDelay = 1f;
-    float LastAttackTime;
+    [SerializeField] int _ComboStep;
+    [SerializeField] bool _AttackCheck;
+    [SerializeField] GameObject _Hitbox;
 
     void Start()
     {
@@ -19,38 +18,47 @@ public class AttackMele : MonoBehaviour
 
     void Update()
     {
-        Attack1();
+        Combos();
     }
 
-    void Attack1()
+
+
+
+    private void Combos()
     {
-        _Animator.SetBool("AttackCheck", AttackCheck);
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && !_AttackCheck)
         {
-            ComboStep++;
-            AttackCheck = true;
-            if (Time.time - LastAttackTime > ComboDelay)
-            {
-                ComboStep = 0;
-            }
-            if (ComboStep == 2) Attack2();
-            else if (ComboStep == 3) Attack3();        
+            _AttackCheck = true;
+            _Animator.SetTrigger("" + _ComboStep);
+            _Hitbox.SetActive(true);
+            Invoke(nameof(DisableHitbox), 0.3f);
+             
         }
-      
-      
-    }
-  
-    void Attack2()
-    {
-        _Animator.SetInteger("AttackCombo", 2);
+
     }
 
-    void Attack3()
+
+    public void Start_Combo()
     {
-        _Animator.SetInteger("AttackCombo", 3);
+        _AttackCheck = false;
+        if (_ComboStep < 3)
+        {
+            _ComboStep++;
+        }
     }
-    public void Attack1End()
+
+
+    public void Finish_ani()
     {
-        AttackCheck = false;
+        _AttackCheck = false;
+        _ComboStep = 0;
     }
+
+    void DisableHitbox()
+    {
+        _Hitbox.SetActive(false);
+    }
+
+
+
 }
