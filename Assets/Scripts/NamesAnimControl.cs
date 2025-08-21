@@ -33,6 +33,11 @@ public class NamesAnimControl : MonoBehaviour
         {
             _canDoAnim = true;
         }
+
+        else if(_fadePanel.fillAmount >=0.9)
+        {
+            _canDoAnim = false;
+        }
     }
 
 

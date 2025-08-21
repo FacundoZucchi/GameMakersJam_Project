@@ -633,6 +633,8 @@ GameObject:
   - component: {fileID: 470039562}
   - component: {fileID: 470039564}
   - component: {fileID: 470039563}
+  - component: {fileID: 470039566}
+  - component: {fileID: 470039565}
   m_Layer: 5
   m_Name: Josias
   m_TagString: Untagged
@@ -756,6 +758,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 470039561}
   m_CullTransparentMesh: 1
+--- !u!114 &470039565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470039561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d50903ce64eaf4bb1d4f7536f07689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &470039566
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470039561}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0e7f33586836af4da40d3276931c3b0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &541924957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,6 +1523,8 @@ GameObject:
   - component: {fileID: 672316641}
   - component: {fileID: 672316643}
   - component: {fileID: 672316642}
+  - component: {fileID: 672316644}
+  - component: {fileID: 672316645}
   m_Layer: 5
   m_Name: Moreno
   m_TagString: Untagged
@@ -1613,6 +1650,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672316640}
   m_CullTransparentMesh: 1
+--- !u!95 &672316644
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672316640}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 265ab001b259c1f4ab2b6a4b978d014c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &672316645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672316640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d50903ce64eaf4bb1d4f7536f07689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &672607487
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,6 +2710,8 @@ GameObject:
   - component: {fileID: 1385869363}
   - component: {fileID: 1385869365}
   - component: {fileID: 1385869364}
+  - component: {fileID: 1385869366}
+  - component: {fileID: 1385869367}
   m_Layer: 5
   m_Name: Zucchi
   m_TagString: Untagged
@@ -2765,6 +2837,39 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385869362}
   m_CullTransparentMesh: 1
+--- !u!95 &1385869366
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385869362}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0529c027cb1dca743bfa175f4e7d9e1d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1385869367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385869362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99d50903ce64eaf4bb1d4f7536f07689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1414927961
 GameObject:
   m_ObjectHideFlags: 0
