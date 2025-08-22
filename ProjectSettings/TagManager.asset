@@ -10,6 +10,8 @@ TagManager:
   - OptionsMenu
   - fadePanel
   - CreditsMenu
+  - hpSlider
+  - pause
   layers:
   - Default
   - TransparentFX
@@ -49,6 +51,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 2155811735
+    locked: 0
+  - name: Background_2
+    uniqueID: 201364129
     locked: 0
   - name: Furnitures
     uniqueID: 3429033821

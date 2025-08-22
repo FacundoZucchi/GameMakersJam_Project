@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player Instance;
+   
 
     public float _AxisX;
     public float _AxisY;
@@ -14,27 +15,25 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if(Instance != null)
         {
-            Destroy(Instance);
+            Destroy(gameObject);
             return;
         }
 
         Instance = this;
         DontDestroyOnLoad(Instance);
+
     }
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+       
     }
 
 
-    void Update()
-    {
 
-
-    }
     private void FixedUpdate()
     {
         Movement();
@@ -42,6 +41,8 @@ public class Player : MonoBehaviour
 
     void Movement()
     {
+
+       
         _AxisX = Input.GetAxisRaw("Horizontal");
         _AxisY = Input.GetAxisRaw("Vertical");
         Vector2 Move = new Vector3(_AxisX, _AxisY).normalized * speed * Time.fixedDeltaTime;

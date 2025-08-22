@@ -7,19 +7,23 @@ public class AttackMele : MonoBehaviour
 {
     private Animator _Animator;
     [SerializeField] int _ComboStep;
-    [SerializeField] bool _AttackCheck;
+    public  bool _AttackCheck;
     [SerializeField] GameObject _Hitbox;
+ 
 
     void Start()
     {
         _Animator = GetComponent<Animator>();
         _Hitbox.SetActive(false);
+        _AttackCheck = false;
+      
     }
 
 
     void Update()
     {
         Combos();
+
     }
 
 
@@ -27,13 +31,14 @@ public class AttackMele : MonoBehaviour
 
     private void Combos()
     {
-        if (Input.GetKeyDown(KeyCode.Z) && !_AttackCheck)
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            _AttackCheck = true;
+            
             _Animator.SetTrigger("" + _ComboStep);
             _Hitbox.SetActive(true);
             Invoke(nameof(DisableHitbox), 0.3f);
-             
+            _AttackCheck = true;
+
         }
 
     }
@@ -41,25 +46,29 @@ public class AttackMele : MonoBehaviour
 
     public void Start_Combo()
     {
-        _AttackCheck = false;
+
         if (_ComboStep < 3)
         {
             _ComboStep++;
+
         }
     }
 
 
     public void Finish_ani()
     {
-        _AttackCheck = false;
         _ComboStep = 0;
+        
+      
     }
 
     void DisableHitbox()
     {
         _Hitbox.SetActive(false);
     }
+    
 
+    
 
 
 }

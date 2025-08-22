@@ -98,13 +98,6 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        /*var spawn = GameObject.FindGameObjectWithTag("PlayerSpawn").GetComponent<Transform>();
-        var player = GameObject.FindGameObjectWithTag("Player");
-
-        if(spawn != null && player != null)
-        {
-            player.transform.position = spawn.transform.position;   
-        }*/
 
         var startFade = GameObject.FindGameObjectWithTag("FadeFx");
         if(startFade != null)
