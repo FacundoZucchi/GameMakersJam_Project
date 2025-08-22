@@ -10,6 +10,7 @@ public class MainMenuManager : MonoBehaviour
     private GameObject _mainMenu;
     private GameObject _optionMenu;
     private GameObject _creditsMenu;
+    private GameObject _instructionsMenu;
     private Image _fadePanel;
     public bool _fadeOnOff;
     [SerializeField] private float _fadeSpeed;
@@ -27,6 +28,7 @@ public class MainMenuManager : MonoBehaviour
         _mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
         _optionMenu = GameObject.FindGameObjectWithTag("OptionsMenu");
         _creditsMenu = GameObject.FindGameObjectWithTag("CreditsMenu");
+        _instructionsMenu = GameObject.FindGameObjectWithTag("InstructionMenu");
         _fadePanel = GameObject.FindGameObjectWithTag("fadePanel").GetComponent<Image>();
     }
 
@@ -35,6 +37,7 @@ public class MainMenuManager : MonoBehaviour
         _mainMenu.SetActive(true);
         _optionMenu.SetActive(false);
         _creditsMenu.SetActive(false);
+        _instructionsMenu.SetActive(false);
         _fadeOnOff = true;
     }
 
@@ -111,7 +114,35 @@ public class MainMenuManager : MonoBehaviour
         _creditsMenu.SetActive(false);
         _fadeOnOff = true;
     }
-    
+
+    public void InstructiosBTN()
+    {
+        StartCoroutine(FadeInstructions());
+    }
+
+    private IEnumerator FadeInstructions()
+    {
+        _fadeOnOff = false;
+        yield return new WaitForSeconds(_optionsWaitTime);
+        _mainMenu.SetActive(false);
+        _instructionsMenu.SetActive(true);
+        _fadeOnOff = true;
+    }
+
+
+    public void BackBTNInstructions()
+    {
+        StartCoroutine(FadeBackInstructions());
+    }
+
+    private IEnumerator FadeBackInstructions()
+    {
+        _fadeOnOff = false;
+        yield return new WaitForSeconds(_backWaitTime);
+        _mainMenu.SetActive(true);
+        _instructionsMenu.SetActive(false); 
+        _fadeOnOff = true;
+    }
 
     public void ExitBTN()
     {

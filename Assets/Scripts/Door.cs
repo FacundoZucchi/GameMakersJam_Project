@@ -13,6 +13,8 @@ public class Door : MonoBehaviour
     [SerializeField] private GameObject _open;
     [SerializeField] private GameObject _close;
 
+    public string doorID;
+
     private void Awake()
     {
         gameManager = GameObject.FindObjectOfType<GameManager>();
@@ -34,6 +36,7 @@ public class Door : MonoBehaviour
     private void GoToScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        gameManager.lastDoorId = doorID;
     }
 
     private IEnumerator WaitTime(float time)
