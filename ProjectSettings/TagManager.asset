@@ -9,6 +9,7 @@ TagManager:
   - MainMenu
   - OptionsMenu
   - fadePanel
+  - CreditsMenu
   layers:
   - Default
   - TransparentFX

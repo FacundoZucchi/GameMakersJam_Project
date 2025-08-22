@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     {
         if(Instance == null)
         {
-            Destroy(gameObject);
+            Destroy(Instance);
             return;
         }
 

@@ -13,6 +13,7 @@ public class AttackMele : MonoBehaviour
     void Start()
     {
         _Animator = GetComponent<Animator>();
+        _Hitbox.SetActive(false);
     }
 
 

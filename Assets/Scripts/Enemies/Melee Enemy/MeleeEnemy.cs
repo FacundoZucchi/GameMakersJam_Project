@@ -138,8 +138,6 @@ public class MeleeEnemy : EnemyBase
         _attacking = true;
         _CD = false;
 
-        transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, _attackSpeed * Time.deltaTime);
-
         Debug.Log("se ataco al jugador");
         _playerAttacked = true;
         
