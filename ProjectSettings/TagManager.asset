@@ -12,6 +12,7 @@ TagManager:
   - CreditsMenu
   - pause
   - InstructionMenu
+  - hpSlider
   layers:
   - Default
   - TransparentFX

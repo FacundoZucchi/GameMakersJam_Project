@@ -33,6 +33,8 @@ public class Door : MonoBehaviour
         }
     }
 
+
+
     private void GoToScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
