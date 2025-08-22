@@ -13,6 +13,16 @@ public class GameManager : MonoBehaviour
     private Image _startPanel;
     public bool _fadeOnOff;
     private float _targetAlpha;
+    private GameObject _PauseMenu;
+    private bool _pause;
+
+    [Header("Doors SetUp")]
+    public string lastDoorId;
+
+    [Header("Life & Heal")]
+    [SerializeField] private float _deceaseSpeed;
+    [SerializeField] private float _hp;
+    private Slider _hpSliderBar;
 
     private void Awake()
     {
@@ -31,8 +41,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _startPanel = GameObject.FindGameObjectWithTag("FadeFx").GetComponent<Image>();
+        _PauseMenu = GameObject.FindGameObjectWithTag("pause");
+        _hpSliderBar = GameObject.FindGameObjectWithTag("hpSlider").GetComponent<Slider>();
 
         _fadeOnOff = false;
+        _pause = false;
+        _hp = 100f;
     }
 
     private void Update()
@@ -46,7 +60,28 @@ public class GameManager : MonoBehaviour
         {
             _targetAlpha = 1;
         }
+
+        if(_targetAlpha <= 0.1)
+        {
+            _startPanel.raycastTarget = false;
+        }
+
+        else
+        {
+            _startPanel.raycastTarget = true;
+        }
         Fade();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            _pause = !_pause;
+        }
+
+        Pause(_pause);
+
+        HpSliderSets();
+        DeceaseOverTime();
+        
     }
 
     private void Fade()
@@ -63,18 +98,59 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        var spawn = GameObject.FindGameObjectWithTag("PlayerSpawn").GetComponent<Transform>();
+        /*var spawn = GameObject.FindGameObjectWithTag("PlayerSpawn").GetComponent<Transform>();
         var player = GameObject.FindGameObjectWithTag("Player");
 
         if(spawn != null && player != null)
         {
             player.transform.position = spawn.transform.position;   
-        }
+        }*/
 
         var startFade = GameObject.FindGameObjectWithTag("FadeFx");
         if(startFade != null)
         {
             _fadeOnOff = false;
         }
+    }
+
+    private void Pause(bool pauseOnOff)
+    {
+        
+        if(pauseOnOff)
+        {
+            _PauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+        }
+
+        else if(!pauseOnOff)
+        {
+            _PauseMenu.SetActive(false);
+            Time.timeScale = 1f;
+        }
+        
+    }
+
+    public void PauseOffBtn()
+    {
+        _pause = false;
+        _PauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void ExitBtn()
+    {
+        //Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    private void HpSliderSets()
+    {
+        _hpSliderBar.maxValue = 100f;
+        _hpSliderBar.value = _hp;
+    }
+
+    private void DeceaseOverTime()
+    {
+        _hp -= _deceaseSpeed * Time.deltaTime;
     }
 }
